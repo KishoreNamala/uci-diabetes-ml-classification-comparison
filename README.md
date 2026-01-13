@@ -15,7 +15,7 @@ indicates early readmission (less than 30 days) versus no early readmission.
 
 ## b. Dataset Description
 
-- Dataset Name: Diabetes 130-US Hospitals Dataset (1999–2008)
+- Dataset Name: [Diabetes 130-US Hospitals Dataset (1999–2008)]([text](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008))
 - Source: UCI Machine Learning Repository
 - Number of instances: 101,766 patient encounters
 - Number of features: 50 (44 used after preprocessing)
@@ -61,12 +61,12 @@ preprocessing steps.
 
 | ML Model | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---------|----------|-----|-----------|--------|----|-----|
-| Logistic Regression | 0.6615 | 0.6706 | 0.1801 | 0.5724 | 0.2740 | 0.1613 |
+| Logistic Regression | 0.6607 | 0.6758 | 0.1808 | 0.5782 | 0.2755 | 0.1638 |
 | Decision Tree | 0.8111 | 0.5289 | 0.1617 | 0.1656 | 0.1636 | 0.0571 |
-| k-Nearest Neighbors | 0.8883 | 0.6227 | 0.4750 | 0.0084 | 0.0164 | 0.0512 |
-| Naive Bayes | 0.1684 | 0.5176 | 0.1153 | 0.9670 | 0.2060 | 0.0451 |
-| Random Forest (Ensemble) | 0.8887 | 0.6614 | 0.6923 | 0.0040 | 0.0079 | 0.0466 |
-| XGBoost (Ensemble) | 0.8886 | 0.6902 | 0.5211 | 0.0163 | 0.0316 | 0.0770 |
+| k-Nearest Neighbors | 0.8883 | 0.5901 | 0.4792 | 0.0101 | 0.0198 | 0.0568 |
+| Naive Bayes | 0.2672 | 0.5432 | 0.1194 | 0.8736 | 0.2101 | 0.0525 |
+| Random Forest (Ensemble) | 0.8887 | 0.6576 | 0.7143 | 0.0044 | 0.0088 | 0.0502 |
+| XGBoost (Ensemble) | 0.8888 | 0.6870 | 0.5946 | 0.0097 | 0.0191 | 0.0655 |
 
 ---
 
@@ -74,12 +74,12 @@ preprocessing steps.
 
 | ML Model | Observation about model performance |
 |---------|------------------------------------|
-| Logistic Regression | Achieved the best balance between recall and precision. It captured a significant portion of early readmissions and performed well on this imbalanced dataset. |
-| Decision Tree | Showed moderate accuracy but low AUC and MCC, indicating limited generalization and sensitivity to class imbalance. |
-| k-Nearest Neighbors | High accuracy due to majority-class dominance, but extremely poor recall, making it ineffective for detecting early readmissions. |
-| Naive Bayes | Very high recall but extremely low precision, resulting in many false positives. This behavior is expected due to the independence assumption. |
-| Random Forest (Ensemble) | High accuracy but almost zero recall at the default threshold, indicating strong bias toward the majority class. |
-| XGBoost (Ensemble) | Achieved the highest ROC AUC, showing strong ranking ability. However, recall was low at the default threshold, suggesting threshold tuning is required. |
+| Logistic Regression | Achieved the best balance between recall and precision among all models. It identified a substantial proportion of early readmissions and performed robustly on this imbalanced dataset, as reflected by the highest MCC. |
+| Decision Tree | Showed moderate accuracy but low AUC and MCC, indicating limited generalization ability and sensitivity to class imbalance. |
+| k-Nearest Neighbors | Achieved high accuracy due to dominance of the majority class but exhibited extremely poor recall, making it ineffective for detecting early readmissions. |
+| Naive Bayes | Demonstrated very high recall but low precision, resulting in many false positives. This behavior is consistent with the strong feature independence assumption of the model. |
+| Random Forest (Ensemble) | Produced high overall accuracy but near-zero recall at the default threshold, indicating a strong bias toward the majority class without threshold tuning. |
+| XGBoost (Ensemble) | Achieved the highest ROC AUC, indicating strong ranking capability. However, recall remained low at the default threshold, suggesting that threshold optimization is necessary to improve sensitivity. |
 
 ---
 ## Project Structure
